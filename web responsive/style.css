@@ -1,0 +1,140 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Navbar (Bootstrap + warna kustom) --- */
+.navbar { background-color: #2c3e50; padding: 12px 0; }
+.navbar .nav-link.active { text-decoration: underline; font-weight: bold; }
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+section {
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #2c3e50;
+  color: white;
+}
+footer p { margin: 0; }
+
+/* --- Jadwal Kuliah --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  table-layout: fixed;
+}
+th, td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+th { background-color: #2c3e50; color: white; }
+
+.mk-item {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.mk-jam { font-size: 12px; color: #666666; }
+.mk-nama { font-weight: bold; color: #333333; font-size: 14px; }
+
+/* --- Anggota Kelompok --- */
+.siswa-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.kartu-siswa {
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+}
+.kartu-siswa img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  background-color: #cccccc;
+}
+.kartu-siswa h3 { margin: 10px 0 5px 0; font-size: 16px; }
+.kartu-siswa p { margin: 0; font-size: 14px; color: #666666; }
+
+/* --- Contact --- */
+form { display: flex; flex-direction: column; }
+label { margin-top: 10px; margin-bottom: 5px; font-weight: bold; }
+input, textarea {
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+}
+form button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form button:hover { background-color: #2980b9; }
+
+/* --- Media Query: layar kecil (HP) --- */
+@media (max-width: 768px) {
+  header { padding: 20px 15px; }
+  header h1 { font-size: 1.5rem; }
+  main { margin: 20px auto; }
+
+  /* Tabel jadwal berubah jadi tumpukan per hari */
+  table, thead, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  td { border: none; border-bottom: 1px solid #dddddd; padding: 0 10px 10px; }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    margin: 0 -10px 10px;
+  }
+
+  .kartu-siswa { width: 100%; max-width: 250px; }
+}
